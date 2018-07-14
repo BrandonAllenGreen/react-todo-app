@@ -9,8 +9,6 @@ class App extends Component {
 
   addTodo = todo => {
     const todos = { ...this.state.todos };
-    console.log(todos);
-
     todos[`todo${Date.now()}`] = todo;
     this.setState({
       todos: todos
@@ -20,6 +18,8 @@ class App extends Component {
   render() {
     return (
       <div className="">
+        <AddTodoForm addTodo={this.addTodo} />
+
         <div className="">
           <ul className="todos">
             {Object.keys(this.state.todos).map(key => (
@@ -27,7 +27,6 @@ class App extends Component {
             ))}
           </ul>
         </div>
-        <AddTodoForm addTodo={this.addTodo} />
       </div>
     );
   }

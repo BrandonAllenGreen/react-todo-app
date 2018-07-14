@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 
 class AddTodoForm extends Component {
-  nameRef = React.createRef();
-  descriptionRef = React.createRef();
+  constructor(props) {
+    super(props);
+
+    this.nameRef = React.createRef();
+    this.descriptionRef = React.createRef();
+    this.createTodo = this.createTodo.bind(this);
+  }
 
   // create new todo from form
-  createTodo = e => {
+  createTodo(e) {
     e.preventDefault();
     const todo = {
-      name: this.nameRef.value.value,
-      description: this.descriptionRef.value.value
+      name: this.nameRef.current.value,
+      description: this.descriptionRef.current.value
     };
-    console.log(todo);
-
     this.props.addTodo(todo);
     e.currentTarget.reset();
-  };
+  }
 
   render() {
     return (
