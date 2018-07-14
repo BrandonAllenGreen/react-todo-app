@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 
 class Todos extends Component {
   createTodos(todo) {
-    return <li key={todo.key}>{todo.text}</li>;
+    return (
+      <li className="todo" key={todo.key}>
+        {todo.text}
+      </li>
+    );
   }
 
   render() {

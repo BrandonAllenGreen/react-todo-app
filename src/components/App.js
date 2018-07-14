@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Todos from './Todos';
+import '../css/TodoList.css';
 
 class App extends Component {
   constructor(props) {
@@ -31,8 +32,14 @@ class App extends Component {
       <div className="todo-list-main">
         <div className="header">
           <form onSubmit={this.addTodo}>
-            <input ref={this.newTodoRef} placeholder="add a todo" />
-            <button type="submit">add</button>
+            <input
+              className="todo-input"
+              ref={this.newTodoRef}
+              placeholder="add a todo"
+            />
+            <button className="submit-button" type="submit">
+              add
+            </button>
           </form>
         </div>
         <Todos entries={this.state.todos} />
