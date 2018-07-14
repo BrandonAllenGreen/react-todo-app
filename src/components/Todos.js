@@ -30,7 +30,11 @@ class Todos extends Component {
     const listTodos = todos.map(this.createTodos);
     return (
       <ul className="todo-list">
-        <FlipMove duration={150} easing="ease-out">
+        <FlipMove
+          duration={150}
+          enterAnimation="accordionVertical"
+          leaveAnimation="elevator"
+        >
           {listTodos}
         </FlipMove>
       </ul>
