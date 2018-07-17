@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Todos from './Todos';
-import '../css/TodoList.css';
+import Todos from './components/Todos';
+import './css/TodoList.css';
 
 class App extends Component {
   constructor(props) {
