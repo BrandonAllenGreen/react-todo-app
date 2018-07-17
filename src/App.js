@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Todos from './Todos';
-import '../css/TodoList.css';
+import Todos from './components/Todos';
+import './css/TodoList.css';
 
 class App extends Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class App extends Component {
     };
     this.newTodoRef = React.createRef();
     this.addTodo = this.addTodo.bind(this);
+    this.deleteTodo = this.deleteTodo.bind(this);
   }
 
   addTodo(e) {
@@ -25,6 +26,15 @@ class App extends Component {
       };
     });
     this.newTodoRef.current.value = '';
+  }
+
+  deleteTodo(key) {
+    const filteredTodos = this.state.todos.filter(todo => {
+      return todo.key !== key;
+    });
+    this.setState({
+      todos: filteredTodos
+    });
   }
 
   render() {
@@ -42,7 +52,7 @@ class App extends Component {
             </button>
           </form>
         </div>
-        <Todos entries={this.state.todos} />
+        <Todos entries={this.state.todos} deleteTodo={this.deleteTodo} />
       </div>
     );
   }
